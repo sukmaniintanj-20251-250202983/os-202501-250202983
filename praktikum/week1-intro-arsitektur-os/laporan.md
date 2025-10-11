@@ -1,6 +1,6 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: [Arsitektur Sistem Operasi]
+Topik: [Arsitektur Sistem Operasi dan Kernel]
 
 ---
 
@@ -12,14 +12,16 @@ Topik: [Arsitektur Sistem Operasi]
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Memahami konsep arsitektur sistem operasi dan kernel
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1. Sistem operasi bertugas mengatur semua aktivitas di komputer
+2. Kernel menjadi otak utama yang mengatur proses dan pengunaan memori
+3. Arsitektur menentukan cara komponen OS bekerja sama
+4. Ada 3 model umum: Monolithic , Microkernel, dan Layered
+5. Percobaan ini bertujuan memahami kinerja setiap arsitektur
 
 ---
 
