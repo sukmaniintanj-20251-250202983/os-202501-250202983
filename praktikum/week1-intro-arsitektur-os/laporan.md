@@ -44,7 +44,7 @@ dmesg | head
 ---
 
 ## Hasil Eksekusi
-![alt text](<screenshots/Screenshoot.png>)
+![alt text](<screenshots/Screenshot.png>)
 
 ---
 
