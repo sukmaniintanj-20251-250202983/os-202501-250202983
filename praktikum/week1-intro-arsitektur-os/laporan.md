@@ -12,7 +12,7 @@ Topik: [Arsitektur Sistem Operasi dan Kernel]
 ---
 
 ## Tujuan
-Memahami konsep arsitektur sistem operasi dan kernel
+Mengenal peran sistem operasi, fungsi kernel sebagai pengatur utama, serta dapat membandingkan model arsitektur OS.
 
 ---
 
@@ -49,14 +49,17 @@ dmesg | head
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
-
+- Makna hasil percobaan.
+  Kode "uname -a" menampilkan informasi lengkap yang ada di sistem
+  Kode "whoami" menampilkan semua user yang sedang aktif di sistem
+  Kode "lsmod | head" menampilkan daftar modul kernel yang sedang aktif (hanya 10 baris pertama)
+  Kode "dmesg | head" menampilkan pesan-pesan yang dicatat kernel (hanya 10 baris pertama)
+- Hasil eksperimen menunjukkan hubungan langsung dengan teori,seperti berikut: membuktikan bahwa kernel berfungsi sesuai teori yaitu mengelola sumber daya utama seperti CPU, memori dan proses. Penghubung ke kernel saat melakukan hal penting seperti membaca file, menunjukkan bahwa program menggunakan system call, yang memiliki peran sebagai jembatan penghubung. Desain arsitektur membuktikan bahwa cara OS dirancang sangat memengaruhi seberapa cepat dan efisien sistem bekerja
+- Perbedaan Linux vs Windows yaitu: Di lingkungan Linux, perintah-perintah tersebut dirancang untuk berinteraksi secara langsung dan mendalam dengan inti sistem (kernel) untuk mendapat informasi detail. Pada lingkungan windows, arsitekturnya berbeda sehingga perintah-perintah tersebut tidak akan dikenali. Untuk mendapat informasi serupa, harus menggunakan aplikasi terpisah.
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Praktikum ini menyimpulkan bahwa sistem operasi memainkan peran utama sebagai perantara antara pengguna, perangkat lunak, dan perangkat keras. Melalui komponen seperti kernel dan system cell, OS mengatur sumber daya komputer secara efisien. Perbedaan arsitektur antara Linux dan Windows, secara langsung memengaruhi cara sistem beroperasi. sehingga penting untuk memahami konsep OS untuk penggunaan komputer yang optimal
 
 ---
 
@@ -66,17 +69,19 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
    2. Manajemen file dan sistem penyimpanan (File Management)
    3. Manajemen Proses (Process Management)
 2. Jelaskan perbedaan antara kernel mode dan user mode
-   **Jawaban:** Kernel mode atau mode inti, dalam mode ini sistem operasi memiliki akses penuh ke semua bagian komputer termasuk perangkat keras. Sedangkan di user mode, program tidak memiliki akses langsung ke perangkat keras, semua harus melewati izin lewat kernel.  
+   **Jawaban:** Kernel mode dimana mode sistem operasi memiliki hak akses penuh ke semua bagian komputer termasuk perangkat keras. Sedangkan di user mode, program tidak memiliki akses langsung ke perangkat keras, semua harus melewati izin lewat kernel.  
 3. Sebutkan contoh OS dengan arsitektur monolithic dan microkernel 
-   **Jawaban:** Monolithic, seperti Linux, MS-DOS,Unix Tradisional
+   **Jawaban:** Monolithic: Linux, MS-DOS,Unix Tradisional
    Microkernel: Minix, MacOS, QNX  
 
 ---
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?
+Bagian paling menantang di minggu ini bagi saya adalah pemahaman materi itu sendiri. Saya merasa sangat gaptek dan sangat tertinggal dari yang lain, sedikit sulit untuk memahami materi karena belum dibekali apapun sebelumnya.
+- Bagaimana cara Anda mengatasinya?
+Saya mengatasi hal tersebut dengan mencari tau di berbagai sumber setelah kelas selesai. Memanfaatkan AI untuk mencari poin-poin yang belum dipahami sebelumnya, serta melihat penjelasan di video youtube.    
 
 ---
 
