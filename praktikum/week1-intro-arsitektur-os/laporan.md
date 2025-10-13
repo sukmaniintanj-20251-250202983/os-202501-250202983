@@ -50,9 +50,9 @@ dmesg | head
 
 ## Analisis
 - Makna hasil percobaan
-  Kode "uname -a" menampilkan informasi lengkap yang ada di sistem
-  Kode "whoami" menampilkan semua user yang sedang aktif di sistem
-  Kode "lsmod | head" menampilkan daftar modul kernel yang sedang aktif (hanya 10 baris pertama)
+  Kode "uname -a" menampilkan informasi lengkap yang ada di sistem,
+  Kode "whoami" menampilkan semua user yang sedang aktif di sistem,
+  Kode "lsmod | head" menampilkan daftar modul kernel yang sedang aktif (hanya 10 baris pertama),
   Kode "dmesg | head" menampilkan pesan-pesan yang dicatat kernel (hanya 10 baris pertama)
 - Hasil eksperimen menunjukkan hubungan langsung dengan teori,seperti berikut: membuktikan bahwa kernel berfungsi sesuai teori yaitu mengelola sumber daya utama seperti CPU, memori dan proses. Penghubung ke kernel saat melakukan hal penting seperti membaca file, menunjukkan bahwa program menggunakan system call, yang memiliki peran sebagai jembatan penghubung. Desain arsitektur membuktikan bahwa cara OS dirancang sangat memengaruhi seberapa cepat dan efisien sistem bekerja
 - Perbedaan Linux vs Windows yaitu: Di lingkungan Linux, perintah-perintah tersebut dirancang untuk berinteraksi secara langsung dan mendalam dengan inti sistem (kernel) untuk mendapat informasi detail. Pada lingkungan windows, arsitekturnya berbeda sehingga perintah-perintah tersebut tidak akan dikenali. Untuk mendapat informasi serupa, harus menggunakan aplikasi terpisah.
