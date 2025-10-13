@@ -78,10 +78,8 @@ Praktikum ini menyimpulkan bahwa sistem operasi memainkan peran utama sebagai pe
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?
-Bagian paling menantang di minggu ini bagi saya adalah pemahaman materi itu sendiri. Saya merasa sangat gaptek dan sangat tertinggal dari yang lain, sedikit sulit untuk memahami materi karena belum dibekali apapun sebelumnya.
-- Bagaimana cara Anda mengatasinya?
-Saya mengatasi hal tersebut dengan mencari tau di berbagai sumber setelah kelas selesai. Memanfaatkan AI untuk mencari poin-poin yang belum dipahami sebelumnya, serta melihat penjelasan di video youtube.    
+- Bagian paling menantang di minggu ini bagi saya adalah pemahaman materi itu sendiri. Saya merasa sangat gaptek dan sangat tertinggal dari yang lain, sedikit sulit untuk memahami materi karena belum dibekali apapun sebelumnya.
+- Saya mengatasi hal tersebut dengan mencari tau di berbagai sumber setelah kelas selesai. Memanfaatkan AI untuk mencari poin-poin yang belum dipahami sebelumnya, serta melihat penjelasan di video youtube.    
 
 ---
 
