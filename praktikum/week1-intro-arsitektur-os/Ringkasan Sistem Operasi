@@ -1,8 +1,12 @@
 [Perbandingan Monolithic Kernel, Microkernel, 
 dan Layered Architecture]
 
-Dalam sistem operasi, ada bagian yang disebut kernel. Bagian tersebut sangat penting  karena mengatur bagaimana perangkat keras dan perangkat lunak dapat berkomunikasi. Ada beberapa model kernel yang umum digunakan, yaitu monolithic kernel, microkernel, dan layered architecture. Ketiganya memiliki perbedaan dalam mengatur komponen dan fungsinya. Masing-masing mempunyai kelebihan dan kekurangan yang memengaruhi seberapa cocok digunakan di sistem modern saat ini, sebagai berikut:
-Monolithic Kernel, Model ini menempatkan semua komponen utama untuk dijalankan di satu ruang kernel (kernel space), yang berarti semua komponen memiliki akses langsung ke sumber daya sistem dan dapat saling berinteraksi secara langsung.
+Dalam sistem operasi, ada bagian yang disebut kernel. Bagian tersebut sangat penting  karena mengatur bagaimana perangkat keras 
+dan perangkat lunak dapat berkomunikasi. Ada beberapa model kernel yang umum digunakan, yaitu monolithic kernel, microkernel, dan layered architecture. 
+Ketiganya memiliki perbedaan dalam mengatur komponen dan fungsinya. Masing-masing mempunyai kelebihan dan kekurangan yang memengaruhi seberapa cocok 
+digunakan di sistem modern saat ini, sebagai berikut:
+Monolithic Kernel, Model ini menempatkan semua komponen utama untuk dijalankan di satu ruang kernel (kernel space), yang berarti semua komponen 
+memiliki akses langsung ke sumber daya sistem dan dapat saling berinteraksi secara langsung.
 Kelebihan:
 1. Kinerja cepat karena interaksi antar bagian terjadi langsung
 2. Lebih mudah untuk berkomunikasi satu sama lain
@@ -13,9 +17,13 @@ Kekurangan:
 3. Kurang fleksibel dibanding yang lain
 4. Kapasitas hardisk dan memori yang lebih besar
 Contoh OS nyata: Linux, Unix MS-DOS
-Dapat sedikit disimpulkan bahwa, Monolithic kernel cocok untuk sistem yang butuh performa tinggi tapi kurang ideal untuk sistem modern yang menuntut keamanan tinggi.
+Dapat sedikit disimpulkan bahwa, Monolithic kernel cocok untuk sistem yang butuh performa tinggi tapi kurang ideal untuk sistem modern yang menuntut 
+keamanan tinggi.
 
-Microkernel, hanya berisi fungsi inti (seperti manajemen memori dan komunikasi antar proses). sementara itu, bagian lain dijalankan di luar ruang kernel (user-space) sebagai proses terpisah. Mempunyai tujuan untuk meningkatkan keamanan sistem dengan memisahkan bagian-bagian agar tidak saling mengganggu. Maka karena setiap layanan harus komunikasi lewat pesan jadi akan berpengaruh ke kinerjanya yanng sedikit lambat dibandingkan monolithic kernel. Namun, model ini jauh lebih stabil dibandingkan dengan monolithic kernel. 
+Microkernel, hanya berisi fungsi inti (seperti manajemen memori dan komunikasi antar proses). sementara itu, bagian lain dijalankan 
+di luar ruang kernel (user-space) sebagai proses terpisah. Mempunyai tujuan untuk meningkatkan keamanan sistem dengan memisahkan 
+bagian-bagian agar tidak saling mengganggu. Maka karena setiap layanan harus komunikasi lewat pesan jadi akan berpengaruh ke 
+kinerjanya yanng sedikit lambat dibandingkan monolithic kernel. Namun, model ini jauh lebih stabil dibandingkan dengan monolithic kernel. 
 Kelebihan:
 1. Lebih aman dan stabil (kesalahan di satu komponen tidak merusak sistem utama)
 2. Lebih mudah dikembangkan dan modifikasi 
@@ -26,7 +34,9 @@ Kekurangan:
 Contoh OS nyata: Minix, Kernel Mach, Symbian OS
 Microkernel tersebut dapat dainggap lebih sesuai dengan sistem modern, terutama karena tingkat keamanannya tinggi
 
-Layered Architecture, Model ini membagi sistem ke dalam beberapa lapisan yang berurutan, dari paling bawah (hardware) hingga paling atas (user interface). Setiap lapisan hanya berinteraksi dengan lapisan tepat diatas atau dibawahnya saja. Model ini dianggap kurang fleksibel karena memperlambat kinerja sistem. 
+Layered Architecture, Model ini membagi sistem ke dalam beberapa lapisan yang berurutan, dari paling bawah (hardware) 
+hingga paling atas (user interface). Setiap lapisan hanya berinteraksi dengan lapisan tepat diatas atau dibawahnya saja.
+Model ini dianggap kurang fleksibel karena memperlambat kinerja sistem. 
 Kelebihan:
 1. Struktur sistem jelas
 2. Mudah dikembangkan dan dipelihara
@@ -36,5 +46,8 @@ Kekurangan:
 2. Kesuliatan menentukan batas fungsi tiap lapisan
 Contoh OS nyata: THE OS, MULTICS, Windows NT
 Layered Archicture lebih cocok untuk sistem pendidikan atau sistem kecil yang mudah di analisis.
-  Maka, cenderung model yang paling relevan untuk sistem operasi modern adalah Microkernel, model ini memisahkan layanan sistem agar jika suatu komponen error, sistem utama tetap berjalan. Maka model ini mampu menyesuaikan diri dengan perkembanagn teknologi saat ini, yang tidak hanya menuntut kecepatan tapi juga keamanan dan kemudahan jangka panjang. Karena itu banyak sistem operasi modern seperti macOS dan Windows memakai pendekatan ini. 
+  Maka, cenderung model yang paling relevan untuk sistem operasi modern adalah Microkernel, model ini memisahkan layanan sistem 
+agar jika suatu komponen error, sistem utama tetap berjalan. Maka model ini mampu menyesuaikan diri dengan perkembanagn teknologi saat ini, 
+yang tidak hanya menuntut kecepatan tapi juga keamanan dan kemudahan jangka panjang. Karena itu banyak sistem operasi modern 
+seperti macOS dan Windows memakai pendekatan ini. 
 
