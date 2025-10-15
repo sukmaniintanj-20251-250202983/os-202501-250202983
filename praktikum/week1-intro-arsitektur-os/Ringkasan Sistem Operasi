@@ -46,7 +46,8 @@ Kekurangan:
 2. Kesuliatan menentukan batas fungsi tiap lapisan
 Contoh OS nyata: THE OS, MULTICS, Windows NT
 Layered Archicture lebih cocok untuk sistem pendidikan atau sistem kecil yang mudah di analisis.
-  Maka, cenderung model yang paling relevan untuk sistem operasi modern adalah Microkernel, model ini memisahkan layanan sistem 
+
+Maka, cenderung model yang paling relevan untuk sistem operasi modern adalah Microkernel, model ini memisahkan layanan sistem 
 agar jika suatu komponen error, sistem utama tetap berjalan. Maka model ini mampu menyesuaikan diri dengan perkembanagn teknologi saat ini, 
 yang tidak hanya menuntut kecepatan tapi juga keamanan dan kemudahan jangka panjang. Karena itu banyak sistem operasi modern 
 seperti macOS dan Windows memakai pendekatan ini. 
