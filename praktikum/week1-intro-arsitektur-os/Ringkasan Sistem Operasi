@@ -1,4 +1,4 @@
-##[Perbandingan Monolithic Kernel, Microkernel, 
+[Perbandingan Monolithic Kernel, Microkernel, 
 dan Layered Architecture]
 
 Dalam sistem operasi, ada bagian yang disebut kernel. Bagian tersebut sangat penting  karena mengatur bagaimana perangkat keras 
