@@ -10,7 +10,7 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 - **Kelas** : S1 Informatika
 
 ---
-
+## Deskripsi Singkat
 ## Tujuan
 Tuliskan tujuan praktikum minggu ini.  
 Contoh:  
@@ -42,9 +42,11 @@ dmesg | head
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+![Screenshot hasil](<screenshots/strace ls 1.png>)
+![Screenshot hasil](<screenshots/strace ls 2.png>)
+![Screenshot hasil](<screenshots/strace -e trace=open,read,write,close cat etcpasswd.png>)
+![Screenshot hasil](<screenshots/dmesg  tail -n 10.png>)
+![Screenshot hasil](<screenshots/syscall-diagram.drawio.png>)
 ---
 
 ## Analisis
@@ -60,11 +62,14 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
+1. Apa fungsi utama system call dalam sistem operasi?
+   **Jawaban:**Fungsi utama nya adalah supaya aplikasi bisa meminta bantuan sistem operasi untuk melakukan sesuatu yang aplikasi sendiri tidak bisa langsung lakukan, seperti membuka file, mengakses perangkat seperti keyboard, printer, atau layar, serta mengatur memori supaya aplikasi bisa berjalan lancar.
+3. Sebutkan 4 kategori system call yang umum digunakan. 
+   **Jawaban:**1. Manajemen proses
+   2. Manajemen file
+   3. Manajemen memori
+   4. Manajemen perangkat I/O
+5. Mengapa system call tidak bisa dipanggil langsung oleh user program?  
    **Jawaban:**  
 
 ---
