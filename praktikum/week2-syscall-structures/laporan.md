@@ -70,7 +70,7 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
    3. Manajemen memori
    4. Manajemen perangkat I/O
 5. Mengapa system call tidak bisa dipanggil langsung oleh user program?  
-   **Jawaban:**  
+   **Jawaban:**System call tidak bisa dipanggil langsung oleh program pengguna karena alesan keamanan dan ketertiban  
 
 ---
 
