@@ -1,6 +1,6 @@
 
 # Laporan Praktikum Minggu [X]
-Topik: Struktur Systemm Call dan Fungsi Kernel
+Topik: Struktur System Call dan Fungsi Kernel
 ---
 
 ## Identitas
