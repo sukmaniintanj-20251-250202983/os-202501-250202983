@@ -136,6 +136,23 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 | write(1, "root:x:0:0:root:/root:/bin/bash\n...", 832)         | = 832      | Menulis hasil pembacaan ke *stdout* (layar terminal)         | Menampilkan isi file /etc/passwd ke layar |
 | read(3, "", 832)  | = 0 | Membaca ulang tetapi tidak ada data tersisa (EOF) | Program mendeteksi akhir file |
 | close(3)`        | =0 | Menutup file descriptor setelah selesai membaca |Mengakhiri akses terhadap file /etc/passwd |
+
+**Tabel observasi dmesg | tail -n 10**
+
+| No | Baris Log Kernel | Keterangan |
+|:-----------------|:------------------|:--------------|
+| 1 | [  23.421234] usb 1-1: new high-speed USB device number 3 using xhci_hcd | Sistem mendeteksi perangkat USB baru yang terhubung ke port 1-1   | 
+| 2 | [  23.567890] usb 1-1: New USB device found, idVendor=0781, idProduct=5591 | Kernel mengenali detail perangkat USB (vendor SanDisk, produk flash drive) |
+| 3 | [  23.568901] usb-storage 1-1:1.0: USB Mass Storage device detected | Kernel mengidentifikasi perangkat tersebut sebagai penyimpanan eksternal |
+| 4 | [  23.569000] scsi host6: usb-storage 1-1:1.0 | Kernel membuat antarmuka SCSI (host6) untuk mengelola perangkat USB tersebut |
+| 5 | [  24.570111] scsi 6:0:0:0: Direct-Access     SanDisk  Ultra USB 3.0  1.00 PQ: 0 ANSI: 6 | Sistem mengenali perangkat penyimpanan dan siap digunakan |
+| 6 | [  24.571222] sd 6:0:0:0: Attached scsi generic sg2 type 0 | Perangkat diberi alias sistem `sg2` untuk akses I/O tingkat rendah |
+| 7 | [  24.572333] sd 6:0:0:0: [sdb] 60062500 512-byte logical blocks: (30.7 GB/28.6 GiB) | Sistem membaca kapasitas dan blok logis drive USB |
+| 8 | [  24.573444] sd 6:0:0:0: [sdb] Write Protect is off | Menunjukkan perangkat tidak dalam mode “write-protect”, artinya bisa ditulis |
+| 9 | [  24.574555]  sdb: sdb1 | Kernel mendeteksi partisi `sdb1` pada perangkat USB |
+| 10 | [  24.575666] sd 6:0:0:0: [sdb] Attached SCSI removable disk | Menandakan perangkat penyimpanan USB telah berhasil di-mount dan siap digunakan |
+
+
 2. Diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.
    ![Screenshot hasil](<screenshots/diagram apk-kernel-hardware.png>)
 3. Hasil analisis mengapa system call penting untuk keamanan OS, Bagaimana OS menjaga transisi user-kernel tetap aman, dan Beberapa system call yang sering digunakan di Linux.
