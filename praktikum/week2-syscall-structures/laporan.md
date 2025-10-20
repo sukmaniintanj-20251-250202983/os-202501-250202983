@@ -59,30 +59,30 @@ dmesg | tail -n 10
    > Catat 5–10 system call pertama yang muncul dan jelaskan fungsinya.  
    Simpan hasil analisis ke `results/syscall_ls.txt`.
 
-`execve` menjalankan program ls
+  `execve` menjalankan program ls
 
-`brk` dan `mmap` menyiapkan ruang memori supaya program mempunyai tempat kerja
+  `brk` dan `mmap` menyiapkan ruang memori supaya program mempunyai tempat kerja
+  
+  `access` mengecek apakah file /etc/Id.so.preload ada dan bisa diakses
 
-`access` mengecek apakah file /etc/Id.so.preload ada dan bisa diakses
+  `openat` membuka file /etc/Id.so.cache (library yang dibutuhkan)
 
-`openat` membuka file /etc/Id.so.cache (library yang dibutuhkan)
+  `fstat` melihat informasi file
+  
+  `mmap` menaruh isi file cache ke dalam memori
 
-`fstat` melihat informasi file
+  `close` menutup file cache
 
-`mmap` menaruh isi file cache ke dalam memori
+  `openat` membuka library utama libc yang dipakai ls
 
-`close` menutup file cache
-
-`openat` membuka library utama libc yang dipakai ls
-
-`read` membaca isi library ke memori agar program bisa dijalankan sepenuhnya
+  `read` membaca isi library ke memori agar program bisa dijalankan sepenuhnya
 
 3. **Eksperimen 2 – Menelusuri System Call File I/O**
    Jalankan:
    ```bash
    strace -e trace=open,read,write,close cat /etc/passwd
    ```
-   > Analisis bagaimana file dibuka, dibaca, dan ditutup oleh kernel.
+   > Hasil Analisis bagaimana file dibuka, dibaca, dan ditutup oleh kernel.
 
   open("/etc/passwd", O_RDONLY) = 3
 - Membuka file /etc/passwd dan memberikan file descriptor 3 kepada program cat
@@ -103,18 +103,18 @@ dmesg | tail -n 10
    ```
    > Amati log kernel yang muncul. Apa bedanya output ini dengan output dari program biasa?
 
-[ 4663.961803] sd 0:0:2:0: [sdb] Mode Sense: 1f 00 00 08
+  [ 4663.961803] sd 0:0:2:0: [sdb] Mode Sense: 1f 00 00 08
 
-[ 4664.359719] EXT4-fs (sdb1): mounted filesystem ...
+  [ 4664.359719] EXT4-fs (sdb1): mounted filesystem ...
+  
+  [ 4665.631091] LoadPin: kernel-module pinning-excluded obj="/lib/modules/..."
 
-[ 4665.631091] LoadPin: kernel-module pinning-excluded obj="/lib/modules/..."
-
-| Aspek | dmesg (kernel) | Program biasa | 
-|:------|----------------|---------------|
-| Sumber output | Dari kernel | Dari program yang dijalankan user |
-| Isi pesan | Log aktivitas sistem | Hasil eksekusi perintah |
-| Format | Ada timestamp dan pesan kernel | Tidak ada timestamp |
-| Mode eksekusi | Mode kernel | Mode user |
+  | Aspek | dmesg (kernel) | Program biasa | 
+  |:------|----------------|---------------|
+  | Sumber output | Dari kernel | Dari program yang dijalankan user |
+  | Isi pesan | Log aktivitas sistem | Hasil eksekusi perintah |
+  | Format | Ada timestamp dan pesan kernel | Tidak ada timestamp |
+  | Mode eksekusi | Mode kernel | Mode user |
 
 5. **Diagram Alur System Call**
    - Buat diagram yang menggambarkan alur eksekusi system call dari program user hingga kernel dan kembali lagi ke user mode.
@@ -134,33 +134,21 @@ dmesg | tail -n 10
 ---
 
 ## Hasil Eksekusi
-**Eksperimen 1**
+**Eksperimen 1 hasil strace ls**
 ![Screenshot hasil](<screenshots/strace ls 1.png>)
-**Eksperimen 2**
+**Eksperimen 2 hasil strace -e trace=open,read,write,close cat /etc/passwd**
 ![Screenshot hasil](<screenshots/strace -e trace=open,read,write,close cat etcpasswd.png>)
-**Eksperimen 3**
+**Eksperimen 3 dmesg | tail -n 10**
 ![Screenshot hasil](<screenshots/dmesg  tail -n 10.png>)
-**Diagram**
+**Diagram Alur System Call**
 ![Screenshot hasil](<screenshots/syscall-diagram.drawio.png>)
----
-
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
 
 ---
 
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
-
----
-
-## D. Tugas & Quiz
 ### Tugas
 1. Dokumentasi hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi.
    
-  **Tabel observasi strace**
+  **Tabel observasi strace ls**
 
 | System Call | Output | Fungsi/Deskripsi | Keterangan | 
 |:-----------------|:------------------|:--------------|:-----------------|
@@ -209,6 +197,8 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
    ```
    praktikum/week2-syscall-structure/
    ```
+## Kesimpulan
+System call berperan penting sebagai penghubung antara program aplikasi dan kernel. Dari praktikum ini saya lebih sedikit mengerti bahwa perintah sederhana seperti ls ternyata melibatkan proses internal OS yang kompleks dibelakangnya. Selain itu hasil dari perintah dmesg menunjukkan perbedaan jelas antara aktivitas kernel dan output program biasa.
 
 ### Quiz
 1. Apa fungsi utama system call dalam sistem operasi?
@@ -219,16 +209,16 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
    3. Manajemen memori
    4. Manajemen perangkat I/O
 3. Mengapa system call tidak bisa dipanggil langsung oleh user program?  
-   **Jawaban:**System call tidak bisa dipanggil langsung oleh program pengguna karena alesan keamanan dan ketertiban  
+   **Jawaban:**System call tidak bisa dipanggil langsung oleh program pengguna karena alesan keamanan dan kestabilan. Jika user bisa langsung akses perangkat keras maka sistem bisa rusak atau data bisa bocor. Semua harus melewati kernel untuk dicek supaya aman.
 
 ---
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
+- Apa bagian yang paling menantang minggu ini?
+Bagi saya di setiap topik baru di minggu baru itu hal baru juga bagi saya. Sulit sekali bagi saya untuk memahami secara menyeluruh dengan cepat. Seperti pada minggu ini, memahami cara kerja system call secara menyeluruh, serta nama-nama system call yang masih terasa sangat asing bagi saya. maka dari itu saya baru bisa commit tugas selalu mendekat deadline, karena perlu mempelajari banyak hal terlebih dahulu.
 - Bagaimana cara Anda mengatasinya?  
-
----
+Mencari tau dasar-dasar topik terlebih dahulu sebelum mulai ke langkah pengerjaan, memanfaatkan ai seperti chatgpt untuk menanyakan hal-hal yang belum dipahami, serta menanyakan kepada teman yang sudah lebih mengerti. 
 
 **Credit:**  
 _Template laporan praktikum Sistem Operasi (SO-202501) – Universitas Putra Bangsa_
