@@ -59,6 +59,24 @@ dmesg | tail -n 10
    > Catat 5–10 system call pertama yang muncul dan jelaskan fungsinya.  
    Simpan hasil analisis ke `results/syscall_ls.txt`.
 
+`execve` menjalankan program ls
+
+`brk` dan `mmap` menyiapkan ruang memori supaya program mempunyai tempat kerja
+
+`access` mengecek apakah file /etc/Id.so.preload ada dan bisa diakses
+
+`openat` membuka file /etc/Id.so.cache (library yang dibutuhkan)
+
+`fstat` melihat informasi file
+
+`mmap` menaruh isi file cache ke dalam memori
+
+`close` menutup file cache
+
+`openat` membuka library utama libc yang dipakai ls
+
+`read` membaca isi library ke memori agar program bisa dijalankan sepenuhnya
+
 3. **Eksperimen 2 – Menelusuri System Call File I/O**
    Jalankan:
    ```bash
@@ -66,12 +84,37 @@ dmesg | tail -n 10
    ```
    > Analisis bagaimana file dibuka, dibaca, dan ditutup oleh kernel.
 
+  open("/etc/passwd", O_RDONLY) = 3
+- Membuka file /etc/passwd dan memberikan file descriptor 3 kepada program cat
+
+  read(3,"root:x:0:0:root:/root:/bin/bash\n...", 131072) = 1429
+- Membaca isi file ke buffer program cat
+
+  write(1, "root:x:0:0:root:/root:/bin/bash\n...", 1429) = 1429
+- Mengirim data dari buffer ke terminal untuk ditampilkan ke layar close(3)
+
+  close(3) = 0
+- Menutup file descriptor 3 dan membebaskan resource yang digunakan
+
 4. **Eksperimen 3 – Mode User vs Kernel**
    Jalankan:
    ```bash
    dmesg | tail -n 10
    ```
    > Amati log kernel yang muncul. Apa bedanya output ini dengan output dari program biasa?
+
+[ 4663.961803] sd 0:0:2:0: [sdb] Mode Sense: 1f 00 00 08
+
+[ 4664.359719] EXT4-fs (sdb1): mounted filesystem ...
+
+[ 4665.631091] LoadPin: kernel-module pinning-excluded obj="/lib/modules/..."
+
+| Aspek | dmesg (kernel) | Program biasa | 
+|:------|----------------|---------------|
+| Sumber output | Dari kernel | Dari program yang dijalankan user |
+| Isi pesan | Log aktivitas sistem | Hasil eksekusi perintah |
+| Format | Ada timestamp dan pesan kernel | Tidak ada timestamp |
+| Mode eksekusi | Mode kernel | Mode user |
 
 5. **Diagram Alur System Call**
    - Buat diagram yang menggambarkan alur eksekusi system call dari program user hingga kernel dan kembali lagi ke user mode.
