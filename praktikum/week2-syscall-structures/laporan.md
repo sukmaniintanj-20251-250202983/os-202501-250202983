@@ -1,5 +1,5 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 2
 Topik: Struktur System Call dan Fungsi Kernel
 ---
 
@@ -202,14 +202,15 @@ System call berperan penting sebagai penghubung antara program aplikasi dan kern
 
 ### Quiz
 1. Apa fungsi utama system call dalam sistem operasi?
-   **Jawaban:**Fungsi utama nya adalah supaya aplikasi bisa meminta bantuan sistem operasi untuk melakukan sesuatu yang aplikasi sendiri tidak bisa langsung lakukan, seperti membuka file, mengakses perangkat seperti keyboard, printer, atau layar, serta mengatur memori supaya aplikasi bisa berjalan lancar.
-2. Sebutkan 4 kategori system call yang umum digunakan. 
-   **Jawaban:**1. Manajemen proses
-   2. Manajemen file
-   3. Manajemen memori
-   4. Manajemen perangkat I/O
+**Jawaban:** Fungsi utama nya adalah supaya aplikasi bisa meminta bantuan sistem operasi untuk melakukan sesuatu yang aplikasi sendiri tidak bisa langsung lakukan, seperti membuka file, mengakses perangkat seperti keyboard, printer, atau layar, serta mengatur memori supaya aplikasi bisa berjalan lancar.
+2. Sebutkan 4 kategori system call yang umum digunakan.
+**Jawaban:**
+  1. Manajemen proses
+  2. Manajemen file
+  3. Manajemen memori
+  4. Manajemen perangkat I/O
 3. Mengapa system call tidak bisa dipanggil langsung oleh user program?  
-   **Jawaban:**System call tidak bisa dipanggil langsung oleh program pengguna karena alesan keamanan dan kestabilan. Jika user bisa langsung akses perangkat keras maka sistem bisa rusak atau data bisa bocor. Semua harus melewati kernel untuk dicek supaya aman.
+**Jawaban:** System call tidak bisa dipanggil langsung oleh program pengguna karena alesan keamanan dan kestabilan. Jika user bisa langsung akses perangkat keras maka sistem bisa rusak atau data bisa bocor. Semua harus melewati kernel untuk dicek supaya aman.
 
 ---
 
