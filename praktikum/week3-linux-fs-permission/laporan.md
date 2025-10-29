@@ -86,7 +86,7 @@ Selain itu, Linux juga menerapkan sistem permission yang mengatur hak akses peng
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/eksperimen week 3.png)
+![Screenshot hasil](<screenshots/eksperimen week 3.png>)
 
 ---
 
@@ -113,7 +113,7 @@ Sertakan screenshot hasil percobaan atau diagram:
   ```
   
   | Kolom | Keterangan | Contoh hasil (output) |
-  |-------|---------|-----------------------|
+  |-------|------------|-----------------------|
   | username | Nama akun pengguna dalam sistem | `root`, `daemon`, `bin`, `sys`, `sync` |
   | password | Ditandai dengan `x`, artinya password disimpan di `etc/shadow/` | `x` |
   | UID (User ID) | Nomor identitas unik setiap pengguna | `0`,`1`,`2`,`3`,`65534` |
@@ -124,9 +124,9 @@ Sertakan screenshot hasil percobaan atau diagram:
 
 **Eksperimen 3 – Permission & Ownership**
 
-| Perintah | Output / Hasil | Keterangan |
+| Perintah  | Output / Hasil  | Keterangan          |
 | --------- | --------------- | ------------------- |
-| `echo "Hello <INTAN><25202983>" > percobaan.txt` | Membuat file baru bernama `percobaan.txt` berisi teks `Hello <INTAN><25202983>` | Perintah `echo` digunakan untuk menulis teks ke dalam file baru |
+| `echo "Hello <INTAN><25202983>" > percobaan.txt`  | Membuat file baru bernama `percobaan.txt` berisi teks `Hello <INTAN><25202983>` | Perintah `echo` digunakan untuk menulis teks ke dalam file baru |
 | `ls -l percobaan.txt`  | `-rw-r--r-- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | File `percobaan.txt` memiliki permission awal **rw-r--r--** (pemilik dapat membaca & menulis, grup & lainnya hanya bisa membaca) |
 | `chmod 600 percobaan.txt` | Mengubah izin akses file | Perintah `chmod 600` membatasi akses hanya untuk pemilik file |
 | `ls -l percobaan.txt` | `-rw------- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | Setelah diubah, hanya pemilik (`labupb`) yang bisa membaca dan menulis file. Pengguna lain tidak bisa mengaksesnya |
@@ -138,12 +138,35 @@ Perbedaan sebelum dan sesudah `chmod`
 | -------------------------------- | ----------------------------------- |
 | `-rw-r--r--` → pemilik bisa membaca & menulis, grup dan lainnya hanya bisa membaca | `-rw-------` → hanya pemilik yang bisa membaca & menulis, pengguna lain tidak memiliki akses |
 
-
-
-
-
 ---
 
+## D. Tugas & Quiz
+### Tugas
+1. Tabel dokumentasi hasil seluruh perintah
+2. Jelaskan fungsi tiap perintah dan arti kolom permission (`rwxr-xr--`).
+
+| Perintah | Fungsi                                                                                                                  |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `pwd`        | Menampilkan direktori aktif saat ini (working directory).                                                           |
+| `ls -l`      | Menampilkan daftar isi direktori dengan informasi detail seperti permission, pemilik, ukuran, dan waktu modifikasi. |
+| `cd`         | Berpindah ke direktori lain.                                                                                        |
+| `cat`        | Menampilkan isi file ke terminal.                                                                                   |
+| `chmod`      | Mengubah hak akses (permission) file atau direktori.                                                                |
+| `chown`      | Mengubah kepemilikan file atau direktori (user/group owner).                                                        |
+
+Arti kolom permission `(rwxr-xr--)`:
+- r (read) : hak untuk membaca file atau isi direktori
+- w (write) : hak untuk menulis atau mengubah isi file
+- x (execute) : hak untuk menjalankan file (jika berupa program) atau mengakses isi direktori.
+
+Struktur `rwxr-xr--` berarti:
+- Pemilik: memiliki hak baca tulis dan eksekusi
+- Grup: hanya memiliki hak baca dan eksekusi
+- Lainnya: hanya memiliki hak baca
+
+
+4. Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux.  
+5. Upload hasil dan laporan ke repositori Git sebelum deadline.
 ## Kesimpulan
 Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
