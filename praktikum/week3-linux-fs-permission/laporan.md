@@ -1,56 +1,146 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 3
+Topik: Manajemen File dan Permission di Linux
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Sukmani Intan Jumala  
+- **NIM**   : 250202983
+- **Kelas** : 1 IKRA
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Setelah menyelesaikan tugas ini, mahasiswa mampu:
+1. Menggunakan perintah `ls`, `pwd`, `cd`, `cat` untuk navigasi file dan direktori.
+2. Menggunakan `chmod` dan `chown` untuk manajemen hak akses file.
+3. Menjelaskan hasil output dari perintah Linux dasar.
+4. Menyusun laporan praktikum dengan struktur yang benar.
+5. Mengunggah dokumentasi hasil ke Git Repository tepat waktu.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Manajemen file id Linux berfungsi untuk mengatur penyimpanan dan pengaksesan data dalam sistem yang bersifat hierarkis, dimulai dari direktori utama atau root `ls`, `pwd`, `cd`dan `cat` yang membantu pengguna melihat, berpindah dan membaca isi direktori maupun file.
+
+Selain itu, Linux juga menerapkan sistem permission yang mengatur hak akses pengguna terhadap file dan direktori. Terdapat tiga jenis hak akses, yaitu read (r), write (w), dan execute (x), yang berlaku bagi owner, group dan others. Pengaturan hak akses dapat dilakukan menggunakan perintah `chmod`, sedangkan perubahan kepemilikan file menggunakan `chown`. Pemahaman terhadap konsep ini penting agar pengguna dapat mengelola file dengan aman dan efisien.
 
 ---
 
-## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+## Langkah Pengerjaan
+1. **Setup Environment**
+   - Gunakan Linux (Ubuntu/WSL).
+   - Pastikan folder kerja berada di dalam direktori repositori Git praktikum:
+     ```
+     praktikum/week3-linux-fs-permission/
+     ```
 
----
+2. **Eksperimen 1 – Navigasi Sistem File**
+   Jalankan perintah berikut:
+   ```bash
+   pwd
+   ls -l
+   cd /tmp
+   ls -a
+   ```
+   - Jelaskan hasil tiap perintah.
+   - Catat direktori aktif, isi folder, dan file tersembunyi (jika ada).
 
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
+3. **Eksperimen 2 – Membaca File**
+   Jalankan perintah:
+   ```bash
+   cat /etc/passwd | head -n 5
+   ```
+   - Jelaskan isi file dan struktur barisnya (user, UID, GID, home, shell).
 
+4. **Eksperimen 3 – Permission & Ownership**
+   Buat file baru:
+   ```bash
+   echo "Hello <NAME><NIM>" > percobaan.txt
+   ls -l percobaan.txt
+   chmod 600 percobaan.txt
+   ls -l percobaan.txt
+   ```
+   - Analisis perbedaan sebelum dan sesudah chmod.  
+   - Ubah pemilik file (jika memiliki izin sudo):
+   ```bash
+   sudo chown root percobaan.txt
+   ls -l percobaan.txt
+   ```
+   - Catat hasilnya.
+
+5. **Eksperimen 4 – Dokumentasi**
+   - Ambil screenshot hasil terminal dan simpan di:
+     ```
+     praktikum/week3-linux-fs-permission/screenshots/
+     ```
+   - Tambahkan analisis hasil pada `laporan.md`.
+
+6. **Commit & Push**
+   ```bash
+   git add .
+   git commit -m "Minggu 3 - Linux File System & Permission"
+   git push origin main
 ---
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](screenshots/eksperimen week 3.png)
 
 ---
 
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+## Analisis Hasil
+**Eksperimen 1 – Navigasi Sistem File**
+- Catatan: 
+  - Direktori aktif: `/tmp`
+  - Isi folder: `systemd-private-xxxx`, `snap-private-tmp`
+  - File tersembunyi: `.X11-unix`, `.font-unix`
+- Perintah`pwd` menunjukkan bahwa direktori aktif berada di`/tmp` 
+- Perintah ls -l menampilkan isi direktori beserta detail seperti hak akses, pemilik, dan ukuran file
+- Perintah cd /tmp digunakan untuk berpindah ke direktori `/tmp`, tetapi karena sejak awal sudah disana, maka lokasi tidak berubah
+- ls -a menampilkan seluruh isi folder termasuk file tersembunyi seperti `.X11-unix` dan `.font-unix`
+  
+**Eksperimen 2 – Membaca File**
+
+  Hasil:
+  ```bash
+  root:x:0:0:root:/root:/bin/bash
+  daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+  bin:x:2:2:bin:/bin:/usr/sbin/nologin
+  sys:x:3:3:sys:/dev:/usr/sbin/nologin
+  sync:x:4:65534:sync:/bin:/bin/sync
+  ```
+  
+  | Kolom | Keterangan | Contoh hasil (output) |
+  |-------|---------|-----------------------|
+  | username | Nama akun pengguna dalam sistem | `root`, `daemon`, `bin`, `sys`, `sync` |
+  | password | Ditandai dengan `x`, artinya password disimpan di `etc/shadow/` | `x` |
+  | UID (User ID) | Nomor identitas unik setiap pengguna | `0`,`1`,`2`,`3`,`65534` |
+  | GID (Group ID) | Nomor grup utama pengguna | `0`,`1`,`2`,`3`,`65534` |
+  | info | Deskripsi singkat akun pengguna | `root`, `daemon`, `bin`, `sys`, `sync` |
+  | home | Direktori utama pengguna | `/root`, `/usr/sbin`, `bin`, `/sbin`, `/bin` |
+  | shell | Program shell yang dijalankan saat login | `/bin/bash`, `/usr/sbin/nologin`, `/bin/sync`|
+
+**Eksperimen 3 – Permission & Ownership**
+
+| Perintah | Output / Hasil | Keterangan |
+| --------- | --------------- | ------------------- |
+| `echo "Hello <INTAN><25202983>" > percobaan.txt` | Membuat file baru bernama `percobaan.txt` berisi teks `Hello <INTAN><25202983>` | Perintah `echo` digunakan untuk menulis teks ke dalam file baru |
+| `ls -l percobaan.txt`  | `-rw-r--r-- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | File `percobaan.txt` memiliki permission awal **rw-r--r--** (pemilik dapat membaca & menulis, grup & lainnya hanya bisa membaca) |
+| `chmod 600 percobaan.txt` | Mengubah izin akses file | Perintah `chmod 600` membatasi akses hanya untuk pemilik file |
+| `ls -l percobaan.txt` | `-rw------- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | Setelah diubah, hanya pemilik (`labupb`) yang bisa membaca dan menulis file. Pengguna lain tidak bisa mengaksesnya |
+| `sudo chown root percobaan.txt` | Tidak dijalankan (karena tidak memiliki izin `sudo`) | Perintah ini seharusnya mengubah kepemilikan file menjadi `root`, namun di lingkungan lab tidak dapat dilakukan karena akses `sudo` dibatasi |
+
+Perbedaan sebelum dan sesudah `chmod`
+
+| Sebelum `(ls -l percobaan.txt) | Sesudah `(chmod 600 percobaan.txt)` |
+| -------------------------------- | ----------------------------------- |
+| `-rw-r--r--` → pemilik bisa membaca & menulis, grup dan lainnya hanya bisa membaca | `-rw-------` → hanya pemilik yang bisa membaca & menulis, pengguna lain tidak memiliki akses |
+
+
+
+
 
 ---
 
