@@ -141,10 +141,8 @@ Perbedaan sebelum dan sesudah `chmod`
 
 ---
 
-## D. Tugas & Quiz
 ### Tugas
-1. Tabel dokumentasi hasil seluruh perintah
-2. Jelaskan fungsi tiap perintah dan arti kolom permission (`rwxr-xr--`).
+**Fungsi tiap perintah dan arti kolom permission (`rwxr-xr--`)**
 
 | Perintah | Fungsi                                                                                                                  |
 | ------------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -165,13 +163,10 @@ Struktur `rwxr-xr--` berarti:
 - Grup: hanya memiliki hak baca dan eksekusi
 - Lainnya: hanya memiliki hak baca
 
-3. Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux.
+**Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux**
    Peran `chmod` dan `chown` dalam keamanan sistem Linux adalah untuk mengontrol akses dan kepemilikan file agar sistem tetap aman.
 `chmod`: Mengatur izin akses (read, write, execute) sehingga hanya pengguna yang berhak dapat membuka, mengubah, atau menjalankan file.
 `chown`: Menentukan pemilik dan grup file agar hanya pengguna yang sah yang memiliki kendali atas file tersebut.
-
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
@@ -199,8 +194,8 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini? Semuanya 
+- Bagaimana cara Anda mengatasinya? Belajar! mencoba dan mencoba!
 
 ---
 
