@@ -22,13 +22,13 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 
 ## Dasar Teori
-Manajemen file id Linux berfungsi untuk mengatur penyimpanan dan pengaksesan data dalam sistem yang bersifat hierarkis, dimulai dari direktori utama atau root `ls`, `pwd`, `cd`dan `cat` yang membantu pengguna melihat, berpindah dan membaca isi direktori maupun file.
+Manajemen file di Linux berfungsi untuk mengatur penyimpanan dan pengaksesan data dalam sistem yang bersifat hierarkis, dimulai dari direktori utama atau root `ls`, `pwd`, `cd`dan `cat` yang membantu pengguna melihat, berpindah dan membaca isi direktori maupun file.
 
 Selain itu, Linux juga menerapkan sistem permission yang mengatur hak akses pengguna terhadap file dan direktori. Terdapat tiga jenis hak akses, yaitu read (r), write (w), dan execute (x), yang berlaku bagi owner, group dan others. Pengaturan hak akses dapat dilakukan menggunakan perintah `chmod`, sedangkan perubahan kepemilikan file menggunakan `chown`. Pemahaman terhadap konsep ini penting agar pengguna dapat mengelola file dengan aman dan efisien.
 
 ---
 
-## Langkah Pengerjaan
+## Langkah Praktikum
 1. **Setup Environment**
    - Gunakan Linux (Ubuntu/WSL).
    - Pastikan folder kerja berada di dalam direktori repositori Git praktikum:
@@ -83,6 +83,7 @@ Selain itu, Linux juga menerapkan sistem permission yang mengatur hak akses peng
    git commit -m "Minggu 3 - Linux File System & Permission"
    git push origin main
 ---
+
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
@@ -164,21 +165,35 @@ Struktur `rwxr-xr--` berarti:
 - Grup: hanya memiliki hak baca dan eksekusi
 - Lainnya: hanya memiliki hak baca
 
+3. Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux.
+   Peran `chmod` dan `chown` dalam keamanan sistem Linux adalah untuk mengontrol akses dan kepemilikan file agar sistem tetap aman.
+`chmod`: Mengatur izin akses (read, write, execute) sehingga hanya pengguna yang berhak dapat membuka, mengubah, atau menjalankan file.
+`chown`: Menentukan pemilik dan grup file agar hanya pengguna yang sah yang memiliki kendali atas file tersebut.
 
-4. Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux.  
-5. Upload hasil dan laporan ke repositori Git sebelum deadline.
 ## Kesimpulan
 Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi dari perintah chmod?
+   *jawaban* : Fungsi perintah `chmod` adalah untuk mengubah izin akses (hak akses) pada file atau direktori, sehingga kita    bisa menentukan siapa yang boleh membaca (read), menulis (write), atau menjalankan (execute) file tersebut 
+2. Apa arti dari kode permission rwxr-xr--?
+   *jawaban* :
+
+| Bagian  | Subjek           | Izin                 | Arti                                                               |
+| ------- | ---------------- | -------------------- | ------------------------------------------------------------------ |
+| **rwx** | Pemilik (owner)  | read, write, execute | Pemilik bisa membaca, menulis, dan menjalankan file                |
+| **r-x** | Grup (group)     | read, execute        | Anggota grup bisa membaca dan menjalankan, tapi tidak bisa menulis |
+| **r--** | Lainnya (others) | read                 | Pengguna lain hanya bisa membaca file                              |
+
+3. Jelaskan perbedaan antara chown dan chmod.
+
+| Perintah    | Fungsi Utama                              | Yang Diubah          | Contoh Penggunaan           |
+| ----------- | ----------------------------------------- | -------------------- | --------------------------- |
+| **`chown`** | Mengubah **kepemilikan (owner dan group)** suatu file atau folder | Pemilik dan grup file  | `chown user:group file.txt` |
+| **`chmod`** | Mengubah **izin akses (permissions)** suatu file atau folder  | Hak akses (read, write, execute) | `chmod 755 file.txt`  |
+
 
 ---
 
