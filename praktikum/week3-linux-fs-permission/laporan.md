@@ -123,6 +123,8 @@ Sertakan screenshot hasil percobaan atau diagram:
   | home | Direktori utama pengguna | `/root`, `/usr/sbin`, `bin`, `/sbin`, `/bin` |
   | shell | Program shell yang dijalankan saat login | `/bin/bash`, `/usr/sbin/nologin`, `/bin/sync`|
 
+Berdasarkan hasil di atas, file `/etc/passwd` berisi daftar pengguna sistem beserta informasi dasar seperti UID, GID, direktori home, dan shell yang digunakan. Beberapa akun seperti daemon dan bin tidak memiliki akses login langsung karena menggunakan `/usr/sbin/nologin`, sedangkan akun root memiliki akses penuh dengan shell aktif /bin/bash
+
 **Eksperimen 3 – Permission & Ownership**
 
 | Perintah  | Output / Hasil  | Keterangan          |
@@ -131,7 +133,7 @@ Sertakan screenshot hasil percobaan atau diagram:
 | `ls -l percobaan.txt`  | `-rw-r--r-- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | File `percobaan.txt` memiliki permission awal **rw-r--r--** (pemilik dapat membaca & menulis, grup & lainnya hanya bisa membaca) |
 | `chmod 600 percobaan.txt` | Mengubah izin akses file | Perintah `chmod 600` membatasi akses hanya untuk pemilik file |
 | `ls -l percobaan.txt` | `-rw------- 1 labupb labupb 25 Oct 23 18:49 percobaan.txt` | Setelah diubah, hanya pemilik (`labupb`) yang bisa membaca dan menulis file. Pengguna lain tidak bisa mengaksesnya |
-| `sudo chown root percobaan.txt` | Tidak dijalankan (karena tidak memiliki izin `sudo`) | Perintah ini seharusnya mengubah kepemilikan file menjadi `root`, namun di lingkungan lab tidak dapat dilakukan karena akses `sudo` dibatasi |
+| `sudo chown root percobaan.txt` | Tidak dijalankan (karena tidak memiliki izin `sudo`) | Perintah ini seharusnya mengubah kepemilikan file menjadi `root`, namun di lingkungan lab kampus tidak dapat dilakukan karena akses `sudo` dibatasi |
 
 Perbedaan sebelum dan sesudah `chmod`
 
@@ -153,15 +155,15 @@ Perbedaan sebelum dan sesudah `chmod`
 | `chmod`      | Mengubah hak akses (permission) file atau direktori.                                                                |
 | `chown`      | Mengubah kepemilikan file atau direktori (user/group owner).                                                        |
 
-Arti kolom permission `(rwxr-xr--)`:
-- r (read) : hak untuk membaca file atau isi direktori
-- w (write) : hak untuk menulis atau mengubah isi file
-- x (execute) : hak untuk menjalankan file (jika berupa program) atau mengakses isi direktori.
-
-Struktur `rwxr-xr--` berarti:
+Arti kolom permission `rwxr-xr--`:
 - Pemilik: memiliki hak baca tulis dan eksekusi
 - Grup: hanya memiliki hak baca dan eksekusi
 - Lainnya: hanya memiliki hak baca
+
+Struktur `rwxr-xr--` berarti:
+- `rwx` : hak akses untuk pemilik (user), artinya dapat membaca (read), menulis (write), dan menjalankan (execute) file
+- `r-x` : hak akses untuk grup, artinya hanya dapat membaca dan menjalankan file, tetapi tidak dapat menullis atau mengubahnya
+- `r--` : hak akses untuk pengguna lain (others), artinya hanya dapat membaca file tanpa bisa menulis atau menjalankan
 
 **Analisis peran `chmod` dan `chown` dalam keamanan sistem Linux**
    Peran `chmod` dan `chown` dalam keamanan sistem Linux adalah untuk mengontrol akses dan kepemilikan file agar sistem tetap aman.
@@ -189,6 +191,17 @@ Struktur `rwxr-xr--` berarti:
 | **`chown`** | Mengubah **kepemilikan (owner dan group)** suatu file atau folder | Pemilik dan grup file  | `chown user:group file.txt` |
 | **`chmod`** | Mengubah **izin akses (permissions)** suatu file atau folder  | Hak akses (read, write, execute) | `chmod 755 file.txt`  |
 
+---
+
+## Kesimpulan
+Dari tiga eksperimen yang dilakukan, dapat disimpulkan bahwa pengelolaan file dan permission di sistem operasi Linux merupakan hal yang sangat penting dalam menjaga keamanan dan keteraturan sistem.
+Perintah dasar seperti pwd, ls, cd, dan cat membantu pengguna untuk menavigasi serta membaca isi file dalam sistem.
+Sementara itu, chmod berfungsi untuk mengatur hak akses terhadap file atau direktori, dan chown digunakan untuk mengubah kepemilikan file.
+
+Hasil eksperimen menunjukkan bahwa perubahan permission dengan chmod berhasil membatasi akses hanya untuk pemilik file, sedangkan perintah chown tidak dapat dijalankan karena hak akses sudo dibatasi di lingkungan lab kampus.
+Hal ini menunjukkan pentingnya kebijakan keamanan dalam sistem multiuser seperti Linux, agar tidak semua pengguna memiliki kendali penuh terhadap sistem.
+
+Jadi secara keseluruhan, praktikum ini memberikan pemahaman nyata mengenai bagaimana Linux mengatur akses pengguna dan peran administrator dalam menjaga keamanan sistem
 
 ---
 
