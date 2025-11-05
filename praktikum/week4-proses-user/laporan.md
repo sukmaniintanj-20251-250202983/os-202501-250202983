@@ -119,18 +119,18 @@ Sertakan screenshot hasil percobaan atau diagram:
 ## Analisis Hasil Percobaan
 **Eksperimen 1 – Identitas User**
 Jelaskan setiap output dan fungsinya!
-- Perintah `whoami`
-  Output : `belinda`
+- Perintah `whoami`<br>
+  Output : `belinda`<br>
   Perintah ini menampilkan nama pengguna yang sedang aktif di sistem. Hasil percobaan menunjukkan bahwa user yang sedang digunakan adalah `belinda`
 - Perintah `id`
   Output :
   ```bash
   uid=1001(belinda) gid=1001(belinda) groups=1001(belinda),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
   ```
- Perintah ini menampilkan informasi identitas lengkap pengguna:
- - uid (user ID): Nomor unik untuk user `belinda`
- - gid (group ID): Nomor grup utama yang dimiliki user
- - groups: Daftar grup yang diikuti oleh user `belinda`
+  Perintah ini menampilkan informasi identitas lengkap pengguna:
+  - uid (user ID): Nomor unik untuk user `belinda`
+  - gid (group ID): Nomor grup utama yang dimiliki user
+  - groups: Daftar grup yang diikuti oleh user `belinda`
 - Perintah `groups`
   Output : `belinda adm cdrom sudo dip plugdev users`
   Perintah ini menampilkan daftar grup yang diikuti user saat ini. Grup ini menentukan hak akses user terhadap file dan sistem.
@@ -146,7 +146,31 @@ Jelaskan setiap output dan fungsinya!
 
 **note**:
 Eksperimen ini dilakukan di lab kampus UPB dengan menggunakan akun utama bernama `belinda`. Setelah meninjau ulang hasil percobaan, saya baru menyadari bahwa langkah untuk uji login ke user baru, yang seharusnya memasukkan kode `su - praktikan` belum sempat dijalankan. Hasil percobaan tersebut belum saya perbarui karena keterbatasan waktu di lab.
-  
+
+**Eksperimen 2 – Monitoring Proses**
+Jelaskan kolom penting seperti PID, USER, %CPU, %MEM, COMMAND!  
+
+|Kolom|Keterangan|
+|-----|----------|
+|PID|Merupakan nomor unik yang diberikan sistem untuk setiap proses. Dengan PID ini kita bisa menghentikan atau memantau proses tertentu|
+|USER|Menunjukkan nama pengguna yang menjalankan proses. Pada hasil percobaan terlihat proses milik `root` dan `belinda`(user aktif) ini membantu mengetahui siapa pemilik tiap proses|
+|%CPU|Menunjukkan presentase penggunaan CPU oleh proses tersebut. Semakin besar nilainya, semakin besar pula sumber daya prosesor yang digunakan|
+|%MEM| Menunjukkan presentase penggunaan memori (RAM). Nilai kecil seperti 0.1 atau 0.2 menunjukkan bahwa proses hanya memakai sedikit memori. Dari hasil percobaan, semua proses menggunakan memori dengan sangat ringan|
+|COMMAND|Menunjukkan nama perintah atau program yang dijalankan. Kolom ini membantu kita mengenali proses apa saja yang sedang bekerja di sistem|
+
+**Eksperimen 3 – Kontrol Proses**
+Catat PID proses `sleep`!  
+Proses `sleep` berhasil dijalankan dengan PID = 415
+  ```bash
+[1] 415
+belinda    415  0.0  0.0   2608   580 pts/0    S    12:49   0:00 sleep 1000
+  ```
+Pada percobaan ini, proses `sleep` berhasil dijalankan dengan PID 415. Namun, ketika mencoba menghentikan proses menggunakan perintah `kill<PID>`, terjadi error karena PID belum diganti, seharusnya perintah yang benar `kill 415`.
+
+   **Eksperimen 4 – Analisis Hierarki Proses**
+Amati hierarki proses dan identifikasi proses induk (`init`/`systemd`)! 
+
+
 ## D. Tugas & Quiz
 ### Tugas
 1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.  
