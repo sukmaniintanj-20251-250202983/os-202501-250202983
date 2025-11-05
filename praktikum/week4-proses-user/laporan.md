@@ -108,6 +108,29 @@ Sertakan screenshot hasil percobaan atau diagram:
 
 ---
 
+## Analisis Hasil Percobaan
+**Eksperimen 1 – Identitas User**
+Jelaskan setiap output dan fungsinya!
+- Perintah `whoami`
+  Output : `belinda`
+  Perintah ini menampilkan nama pengguna yang sedang aktif di sistem. Hasil percobaan menunjukkan bahwa user yang sedang digunakan adalah `belinda`
+- Perintah `id`
+  Output :
+  ```bash
+  uid=1001(belinda) gid=1001(belinda) groups=1001(belinda),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+  ```
+ Perintah ini menampilkan informasi identitas lengkap pengguna:
+ - uid (user ID): Nomor unik untuk user `belinda`
+ - gid (group ID): Nomor grup utama yang dimiliki user
+ - groups: Daftar grup yang diikuti oleh user `belinda`
+- Perintah `groups`
+  Output : `belinda adm cdrom sudo dip plugdev users`
+  Perintah ini menampilkan daftar grup yang diikuti user saat ini. Grup ini menentukan hak akses user terhadap file dan sistem.
+  - `sudo`: bisa menjalankan perintah sebagai admin
+  - `adm`: bisa membaca log sistem
+  - `plugdev`: bisa mengakses perangkat eksternal seperti USB
+- Perintah `sudo adduser praktikan`
+- 
 ## D. Tugas & Quiz
 ### Tugas
 1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.  
