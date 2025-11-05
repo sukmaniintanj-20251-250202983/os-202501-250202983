@@ -102,7 +102,9 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](<screenshots/eksperimen_1.png>)
+![Screenshot hasil](<screenshots/eksperimen_2.png>)
+![Screenshot hasil](<screenshots/eksperimen_3dan4.png>)
 
 ---
 
@@ -115,9 +117,12 @@ Sertakan screenshot hasil percobaan atau diagram:
 
 ### Quiz
 Tuliskan jawaban di bagian **Quiz** pada laporan:
-1. Apa fungsi dari proses `init` atau `systemd` dalam sistem Linux?  
-2. Apa perbedaan antara `kill` dan `killall`?  
+1. Apa fungsi dari proses `init` atau `systemd` dalam sistem Linux?
+   *jawaban*: `init` atau `systemd`berfungsi sebagai pengatur utama yang memastikan seluruh proses dan layanan dalam sistem linux berjalan dengan lancar dan terkoordinasi sejak komputer dinyalakan hingga dimatikan. Proses `init` atau `systemd` merupakan proses pertama yang dijalankan setelah kernel linux aktif dan memiliki PID 1 sebagai induk dari semua proses yang berfungsi untuk menyiapkan proses agar siap digunakan. Pada sistem lama digunakan `init`, sedangkan sistem modern memakai `systemd` yang lebih cepat dan efisien.
+2. Apa perbedaan antara `kill` dan `killall`?
+   *jawaban*: Perintah `kill` dan `killall` sama sama berfungsi untuk menghentikan proses yang sedang berjalan, tapi dengan cara yang berbeda. `kill` digunakan jika kita tahu nomor prosesnya (PID), jadi hanya menghentikan satu proses tertentu. Sementara `killall` bisa menghentikan semua proses yang memiliki nama program yang sama tanpa harus mencari PID nya. Jadi `kill` bekerja berdasarkan ID proses, sedangkan `killall` bekerja sebagai nama proses.
 3. Mengapa user `root` memiliki hak istimewa di sistem Linux?
+   *jawaban*: user `root` merupakan penggunan dengan hak istimewa tertinggi. Akun ini bisa melakukan apapun di sistem, seperti mengubah pengaturan penting, menghapus file sistem, memasang software atau mengatur hak akses pengguna lain. Alasan `root` memiliki hak istimewa adalah karena linux di desain dengan sistem keamanan berlapis, hanya pengguna tertentu (`root`) yang boleh melakukan tindakan yang bisa memengaruhi seluruh sistem. Dengan begitu, sistem jadi lebih aman karena pengguna biasa tidak bisa secara tidak sengaja merusak atau mengubah bagian penting di sistem
 ---
 
 ## Kesimpulan
