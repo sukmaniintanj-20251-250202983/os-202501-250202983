@@ -29,9 +29,17 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+whoami
+id
+groups
+sudo adduser praktikan
+sudo passwd praktikan
+ps aux | head -10
+top -n 1
+sleep 1000 &
+ps aux | grep sleep
+kill <PID>
+pstree -p | head -20
 ```
 
 ## Langkah Praktikum
@@ -130,7 +138,15 @@ Jelaskan setiap output dan fungsinya!
   - `adm`: bisa membaca log sistem
   - `plugdev`: bisa mengakses perangkat eksternal seperti USB
 - Perintah `sudo adduser praktikan`
-- 
+  Output : `fatal: The user `praktikan` already exists.`
+  Artinya akun tersebut sudah pernah dibuat sebelumnya, mungkin pada sesi lain atau oleh pengguna lain di komputer yang sama. Jadi sistem tidak membuat ulang akun tersebut
+- Perintah `sudo passwd praktikan`
+  Output : `passwd: password updated successfully`
+  Perintah ini digunakan untuk mengubah password bagi user `praktikan`
+
+**note**:
+Eksperimen ini dilakukan di lab kampus UPB dengan menggunakan akun utama bernama `belinda`. Setelah meninjau ulang hasil percobaan, saya baru menyadari bahwa langkah untuk uji login ke user baru, yang seharusnya memasukkan kode `su - praktikan` belum sempat dijalankan. Hasil percobaan tersebut belum saya perbarui karena keterbatasan waktu di lab.
+  
 ## D. Tugas & Quiz
 ### Tugas
 1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.  
