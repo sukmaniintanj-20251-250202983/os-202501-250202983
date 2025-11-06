@@ -175,7 +175,7 @@ Proses `sleep` berhasil dijalankan dengan PID = 415
 [1] 415
 belinda    415  0.0  0.0   2608   580 pts/0    S    12:49   0:00 sleep 1000
 ```
-Pada percobaan ini, proses `sleep` berhasil dijalankan dengan PID 415. Setelah melakukan pengamatan untuk analisa, diketahui bahwa proses `sleep` belum dihentikan, karena saat mencoba menghentikan proses menggunakan perintah `kill<PID>`, terjadi error karena PID belum diganti. Seharusnya perintah yang benar `kill 415`. Hal ini baru diketahui saat hasil `pstree` pada eksperiman berikutnya masih menampilkan proses `sleep` yang aktif.
+Pada percobaan ini, proses `sleep` berhasil dijalankan dengan PID 415. Setelah melakukan pengamatan untuk analisa, diketahui bahwa proses `sleep` belum dihentikan, karena saat mencoba menghentikan proses menggunakan perintah `kill<PID>`, maka terjadilah error karena PID belum saya ganti. Seharusnya perintah yang benar `kill 415`. Hal ini baru saya ketahui saat hasil `pstree` pada eksperiman berikutnya masih menampilkan proses `sleep` yang aktif. Saat melakukan uji coba saya belum memahami arti pesan yang muncul.
 
 **Eksperimen 4 – Analisis Hierarki Proses**  
 Amati hierarki proses dan identifikasi proses induk (`init`/`systemd`)! 
