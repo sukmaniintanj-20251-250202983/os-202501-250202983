@@ -110,8 +110,11 @@ pstree -p | head -20
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
+Eksperimen 1
 ![Screenshot hasil](<screenshots/eksperimen_1.png>)
+Eksperimen 2
 ![Screenshot hasil](<screenshots/eksperimen_2.png>)
+Eksperimen 3 dan 4
 ![Screenshot hasil](<screenshots/eksperimen_3dan4.png>)
 
 ---
@@ -174,7 +177,7 @@ systemd(1)─┬─agetty(168)
             ├─agetty(171)
             ├─cron(152)
             ├─dbus-daemon(153)
-            ├─init-systemd(Ub2)─┬─SessionLeader(278)─┬─Relay(280)(279)─┬─(bash(280)─├─head(419)
+            ├─init-systemd(Ub2)─┬─SessionLeader(278)─┬─Relay(280)(279)─┬─(bash(280)─┬─head(419)
             │                   │                                                  ├─pstree(418)
             │                   │                                                  └─sleep(415)
             │                   ├─init(7)───{init}(8)
@@ -191,16 +194,61 @@ systemd(1)─┬─agetty(168)
             ├─systemd-udevd(91)
             └─unattended-upgr(194)───{unattended-upgr}(230)
 ```
+- Proses induk utama pada sistem adalah `systemd`(PID 1)
+- Beberapa proses turunan yang muncul antara lain `agetty`, `cron`, `dbus-daemon`, `systems-logind`, dan `systemd-udevd`
+- Proses `sleep(415)` merupakan proses anak dari `bash(280)` yang dijalankan oleh pengguna `belinda`, menunjukkan bahwa proses dari sebelumnya masih aktif
 
-
+---
 
 ## Tugas
-1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.  
-2. Gambarkan hierarki proses dalam bentuk diagram pohon (`pstree`) di laporan.  
-3. Jelaskan hubungan antara user management dan keamanan sistem Linux.  
-4. Upload laporan ke repositori Git tepat waktu.
+1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.
 
-### Quiz
+| Perintah | Fungsi |
+|----------|---------|
+| `whoami` | Menampilkan nama user yang sedang aktif|
+|`id`|Menunjukkan UID, GID, dan grup user|
+|`groups`|Menampilkan daftar grup yang diikuti user|
+|`sudo adduser praktikan`|Membuat akun user baru bernama praktikan|
+|`sudo passwd praktikan`|Mengatur atau mengganti password user praktikan|
+|`su - praktikan`|Berpindah login ke akun praktikan|
+|`ps aux|`head -10`|
+|`top -n 1|Menampilkan aktivitas sistem dan penggunaan CPU/RAM|
+|`sleep 1000 &`|Menjalankan proses sleep di latar belakang|
+|`ps aux| grep sleep`|
+|`kill<PID>`|Menghentikan proses berdasarkan nomor PID|
+|`pstree-p| head -20`|
+|(hasil `pstree`)|Menunjukkan `systems(1)` sebagai proses induk utama dan sleep (415) sebagai turunan|
+|-|Menunjukkan keterkaitan:proses sleep dari eksperimen 3 masih aktif pada eksperimen 4|
+
+2. Gambarkan hierarki proses dalam bentuk diagram pohon (`pstree`) di laporan.
+```bash
+systemd(1)
+ ├─agetty(168)
+ ├─agetty(171)
+ ├─cron(152)
+ ├─dbus-daemon(153)
+ ├─init-systemd(Ub2)
+ │   ├─SessionLeader(278)
+ │   │   └─bash(280)
+ │   │       ├─head(419)
+ │   │       ├─pstree(418)
+ │   │       └─sleep(415)
+ │   └─login(281)
+ │       └─bash(346)
+ ├─rsyslogd(177)
+ ├─systemd-journal(49)
+ ├─systemd-logind(160)
+ ├─systemd-resolve(145)
+ ├─systemd-timesyncd(146)
+ ├─systemd-udevd(91)
+ └─unattended-upgr(194)
+```
+
+3. Jelaskan hubungan antara user management dan keamanan sistem Linux.
+   User management memiliki peran penting dalam menjaga keamanan sistem Linux. Melalui pengaturan user dan grup, sistem dapat membatasi hak akses setiap pengguna sesuai perannya. Dengan begitu, tidak semua user memiliki izin untuk mengubah konfigurasi penting atau menjalankan perintah berisiko.
+Selain membatasi akses, user management juga membantu melacak aktivitas setiap pengguna sehingga jika terjadi kesalahan atau ancaman, sumbernya dapat diketahui. Jadi, pengelolaan user yang baik bukan hanya soal membuat akun, tetapi juga menjaga sistem tetap aman, tertib, dan terkontrol.
+
+## Quiz
 Tuliskan jawaban di bagian **Quiz** pada laporan:
 1. Apa fungsi dari proses `init` atau `systemd` dalam sistem Linux?
    *jawaban*: `init` atau `systemd`berfungsi sebagai pengatur utama yang memastikan seluruh proses dan layanan dalam sistem linux berjalan dengan lancar dan terkoordinasi sejak komputer dinyalakan hingga dimatikan. Proses `init` atau `systemd` merupakan proses pertama yang dijalankan setelah kernel linux aktif dan memiliki PID 1 sebagai induk dari semua proses yang berfungsi untuk menyiapkan proses agar siap digunakan. Pada sistem lama digunakan `init`, sedangkan sistem modern memakai `systemd` yang lebih cepat dan efisien.
@@ -211,16 +259,19 @@ Tuliskan jawaban di bagian **Quiz** pada laporan:
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1. Melalui praktikum ini, saya memahami cara mengelola user dan memantau proses yang berjalan di sistem linux, termask menambah mengubah, dan mengatur hak akses user.
+2. Setiap proses di linux memiliki hierarki yang terstruktur dengan `systemd` sebagai proses induk utama, yang menjadi dasar dari semmua proses lain di sistem
+3. Secara keseluruhan, praktikum ini menegaskan bahwa manajemen user dan proses merupakan bagian penting dalam sistem linux. Karena keduanya saling berhubungan dalam menjaga stabilitas keamanan sistem operasi.
 
 
 ---
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
+- Apa bagian yang paling menantang minggu ini?
+  Masuk minggu keempat saya masih mengerjakan uji coba/eksperimen di lab kampus, karena belum memiliki laptop pribadi. Hal itu sedikit menghambat dalam mengerjakan tugas karena keterbatasan waktu di lab. Pada praktikum ini ada beberapa langkah yang tidak sesuai perintah atau terlewat, tetapi saya belum bisa mencoba uji coba ulang di kampus.
 - Bagaimana cara Anda mengatasinya?  
-
+Dengan keterbatasan waktu dan belum bisa melakukan-uji coba ulang, maka saya mencoba memahami hal hal yang terlewat dan menjelaskan nya di laporan. Bagi saya yang penting saya paham apa, kenapa, terdapat kesalahan dimananya dan harusnya seperti apa untuk perbaikan. Uji coba ulang akan saya lakukan di kesempatan.
 ---
 
 **Credit:**  
