@@ -22,7 +22,14 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1. Manajemen Pengguna (User Management)
+   Dalam sistem Linux, setiap pengguna memiliki user ID(UID) dan grup ID(GID) yang menentukan hak akses terhadap file dan proses. Menurut Linux Manual Pages (man adduser), fitur ini memastikan keamanan sistem dengan membatasi akses hanya untuk pengguna yang berwenang
+2. Proses dan Hierarki Proses
+   Tanenbaum dan Bos (2015) menjelaskan bahwa setiap program yang berjalan disebut proses dan memiliki Process ID(PID). Proses dapat memiliki anak (child process), seperti terlihat lewat perintah `pstree` di mana `systemd` (PID 1) menjadi induk dari proses lain
+3. Pemantauan dan Pengendalian Proses
+   Berdasarkan Arpaci-Dusseau & Arpaci-Dusseau(2018), sistem operasi memantau proses menggunakan alat seperti `ps` dan `top`, serta mengontrolnya lewat sinyal `kill`. Dalam percobaan, perintah ini digunakan untuk melihat dan menghentikan proses `sleep`
+4. Keamanan dan Stabilitas Sistem
+   Silberschatz et al. (2018) menegaskan bahwa pengaturan user dan proses berperan penting menjaga keamanan serta kestabilan sistem, karena hanya pengguna berizin yang dapat mengelola sumber daya tertentu.
 
 ---
 
