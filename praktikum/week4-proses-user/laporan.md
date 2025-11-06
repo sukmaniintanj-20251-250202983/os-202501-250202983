@@ -161,14 +161,37 @@ Jelaskan kolom penting seperti PID, USER, %CPU, %MEM, COMMAND!
 **Eksperimen 3 – Kontrol Proses**  
 Catat PID proses `sleep`!  
 Proses `sleep` berhasil dijalankan dengan PID = 415
-  ```bash
+```bash
 [1] 415
 belinda    415  0.0  0.0   2608   580 pts/0    S    12:49   0:00 sleep 1000
-  ```
+```
 Pada percobaan ini, proses `sleep` berhasil dijalankan dengan PID 415. Setelah melakukan pengamatan untuk analisa, diketahui bahwa proses `sleep` belum dihentikan, karena saat mencoba menghentikan proses menggunakan perintah `kill<PID>`, terjadi error karena PID belum diganti. Seharusnya perintah yang benar `kill 415`. Hal ini baru diketahui saat hasil `pstree` pada eksperiman berikutnya masih menampilkan proses `sleep` yang aktif.
 
 **Eksperimen 4 – Analisis Hierarki Proses**  
 Amati hierarki proses dan identifikasi proses induk (`init`/`systemd`)! 
+```bash
+systemd(1)─┬─agetty(168)
+            ├─agetty(171)
+            ├─cron(152)
+            ├─dbus-daemon(153)
+            ├─init-systemd(Ub2)─┬─SessionLeader(278)─┬─Relay(280)(279)─┬─(bash(280)─├─head(419)
+            │                   │                                                  ├─pstree(418)
+            │                   │                                                  └─sleep(415)
+            │                   ├─init(7)───{init}(8)
+            │                   ├─login(281)───bash(346)
+            │                   └─{init-systemd(Ub)}(9)
+            ├─rsyslogd(177)─┬─{rsyslogd}(195)
+            │               ├─{rsyslogd}(196)
+            │               └─{rsyslogd}(197)
+            ├─systemd(332)───(sd-pam)(333)
+            ├─systemd-journal(49)
+            ├─systemd-logind(160)
+            ├─systemd-resolve(145)
+            ├─systemd-timesyncd(146)───{systemd-timesyn}(150)
+            ├─systemd-udevd(91)
+            └─unattended-upgr(194)───{unattended-upgr}(230)
+```
+
 
 
 ## Tugas
