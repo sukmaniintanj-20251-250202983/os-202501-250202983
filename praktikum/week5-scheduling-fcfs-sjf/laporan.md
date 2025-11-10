@@ -88,7 +88,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](<screenshots/eksperimen1_fcfs_dan_sjf>)
+![Screenshot hasil](<screenshots/eksperimen1_fcfs_dan_sjf.png>)
 
 ---
 
