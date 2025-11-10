@@ -1,5 +1,4 @@
-
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 5
 Topik: Penjadwalan CPU – FCFS dan SJF  
 
 ---
@@ -89,14 +88,13 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](<screenshots/eksperimen1_fcfs_dan_sjf>)
 
 ---
 
 ## Analisis Hasil
-   - Bandingkan hasil rata-rata WT dan TAT antara FCFS & SJF.  
-   - Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya.  
-   - Tambahkan kesimpulan singkat di akhir laporan.
+**Eksperimen 1 – FCFS (First Come First Served)**
+- Urutkan proses berdasarkan *Arrival Time*. 
 
 ---
 
@@ -114,11 +112,12 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-Tuliskan jawaban di bagian **Quiz** pada laporan:
-1. Apa perbedaan utama antara FCFS dan SJF?  
-2. Mengapa SJF dapat menghasilkan rata-rata waktu tunggu minimum?  
-3. Apa kelemahan SJF jika diterapkan pada sistem interaktif?
-
+1. Apa perbedaan utama antara FCFS dan SJF?
+   Jawaban: Perbedaan utama terletak di penjadwalan eksekusi. FCFS mengekskusi proses berdasarkan urutan waktu kedatangannya, sedangkan SJF mengekskusi proses dengan melihat waktu eksekusi yang paling singkat/paling cepat terselesaikan.
+2. Mengapa SJF dapat menghasilkan rata-rata waktu tunggu minimum?
+   Jawaban: SJF menghasilkan rata rata waktu tunggu minimum, karena menjalankan proses yang memiliki waktu eksekusi paling singkat. Dengan begitu, proses-proses yang memiliki waktu eksekusi singkat bisa cepat selesai tanpa menunggu proses panjang. Sehingga rata-rata waktu tunggu keseluruhan  menjadi lebih minimum dan efisien.
+4. Apa kelemahan SJF jika diterapkan pada sistem interaktif?
+   Jawaban: Algoritma ini sulit diterapkan pada sistem interaktif karena sulit menebak berapa lama proses berjalan. Pada sistem interaktif proses datang secara acak dan burst time nya tidak dapat diprediksi dengan pasti. Akibatnya sistem bisa salah menentukan urutan eksekusi dan untuk proses dengan burst time panjang bisa tertunda terus menerus karena selalu kalah prioritas dengan proses yang lebih singkat, sehingga sistem menjadi kurang responsif dan kurang adil terhadap kebutuhan pengguna.
 ---
 
 ## Refleksi Diri
