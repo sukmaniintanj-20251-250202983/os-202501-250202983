@@ -89,9 +89,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ## Hasil Eksekusi
 - Hasil Eksperimen
 ![Screenshot hasil](<screenshots/eksperimen_fcfs_sjf.png>)
-- Hasil Tugas
-![Screenshot hasil](<screenshots/skenario_1.png>)
-![Screenshot hasil](<screenshots/skenario_2.png>)
+
 ---
 
 ## Analisis Hasil
@@ -156,11 +154,23 @@ Gantt Chart :
 ---
 
 ## Tugas
-1. Hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.
-   
-3. Sajikan hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).  
-4. Analisis kelebihan dan kelemahan tiap algoritma.  
-5. Simpan seluruh hasil dan analisis ke `laporan.md`.  
+Hasil hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.
+![Screenshot hasil](<screenshots/skenario_1.png>)
+![Screenshot hasil](<screenshots/skenario_2.png>)
+Hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).
+Skenario 1
+
+|Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+|------------|------------------|----------------------|------------|-------------|
+| FCFS |6.75| 11.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+| SJF | 4.25 | 9.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
+
+Skenario 2
+
+|Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+|------------|------------------|----------------------|------------|-------------|
+| FCFS |4.33| 9.67 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+| SJF | 3.67 | 9.00 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
 
 ---
 
