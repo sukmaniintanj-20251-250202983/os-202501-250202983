@@ -136,9 +136,10 @@ Gantt Chart :
 ---
   
 - **Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya**  
-  Berdasarkan hasil perhitungan pada data diatas, algoritma FCFS memiliki rata-rata waiting time sebesar 8.75 dan turnaround time sebesar 14.75, sedangkan algoritma SJF memiliki rata-rata waiting time sebesar 6.25 dan turnaround time sebesar 12.25. Perbedaan ini menunjukkan bahwa SJF lebih unggul dengan mampu menyelesaikan proses lebih cepat secara keseluruhan.
-   - SJF unggul saat proses dieksekusi memiliki variasi burst time yang besar. Dalam data ini, proses P4 yang hanya butuh 3 satuan waktu langsung dieksekusi setelah P1 selesai, membuat waktu tunggunya sangat kecil dan berpengaruh pada rata-rata keseluruhan.
-   - Sebaliknya, FCFS unggul pada kondisi sistem yang fokus pada keadilan dan kestabilan urutan. Seperti ketika semua proses datang hampir bersamaan atau memiliki burst time yang mirip. FCFS memastikan setiap proses dieksekusi sesuai urutan kedatangan tanpa ada yang tertinggal terlalu lama, walaupun secara efisiensi waktu total bisa lebih besar.
+  Berdasarkan hasil perhitungan pada data diatas, algoritma FCFS memiliki rata-rata waiting time sebesar 8.75 dan turnaround time sebesar 14.75, sedangkan algoritma SJF memiliki rata-rata waiting time sebesar 6.25 dan turnaround time sebesar 12.25. Perbedaan tersebut memperlihatkan SJF lebih unggul dalam hal efisiensi waktu, kondisi ini terjadi karena pada SJF, proses dengan waktu eksekusi pendek seperti P4 (burst time = 3) dapat langsung dijalankan setelah P1, sehingga proses lain tidak menunggu terlalu lama. Akibatnya, total waktu tunggu seluruh proses menjadi lebih singkat.
+
+Sebaliknya, algoritma FCFS akan lebih unggul jika setiap proses memiliki waktu eksekusi yang hampir sama atau jika sistem menuntut keadilan urutan. Berdasarkan data, FCFS menjalankan proses sesuai urutan kedatangan, yaitu P1 → P2 → P3 → P4, sehingga tidak ada proses yang dilewati. Namun karena P2 memiliki burst time cukup panjang (8), proses lain seperti P3 dan P4 jadi menunggu lama, menyebabkan waktu tunggu rata-rata meningkat.
+
 
 ## Kesimpulan
 1. Berdasarkan hasil perhitungan pada praktikum, SJF memiliki rata-rata waktu tunggu (6.25) dan waktu penyelesaian (12.25) yang lebih rendah dibanding FCFS dengan rata-rata waktu tunggu (8.75) dan waktu penyelesaian (14.75). Hal ini menunjukkan bahwa SJF lebih efisien dalam mengelola proses dengan variasi burst time yang berbeda-beda.
@@ -185,8 +186,10 @@ Pada skenario 2, semua proses mempunyai arrival time = 0, artinya semua datang b
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?
+  Pada praktikum ini, saya merasa memahami algoritma SJF lebih sulit daripada FCFS, karena perlu memperhatikan lebih yaitu urutan proses berdasarkan waktu eksekusi terpendek dan waktu kedatangan secra bersamaan.
+- Bagaimana cara Anda mengatasinya?
+  Untuk mengatasinya, saya mencoba memahami ulang rumusnya beberapa kali dan melihat contoh kasus dari sumber lain
 
 ---
 
