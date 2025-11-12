@@ -87,9 +87,11 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](<screenshots/eksperimen1_fcfs_dan_sjf.png>)
-
+- Hasil Eksperimen
+![Screenshot hasil](<screenshots/eksperimen_fcfs_sjf.png>)
+- Hasil Tugas
+![Screenshot hasil](<screenshots/skenario_1.png>)
+![Screenshot hasil](<screenshots/skenario_2.png>)
 ---
 
 ## Analisis Hasil
@@ -154,10 +156,11 @@ Gantt Chart :
 ---
 
 ## Tugas
-1. Hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.  
-2. Sajikan hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).  
-3. Analisis kelebihan dan kelemahan tiap algoritma.  
-4. Simpan seluruh hasil dan analisis ke `laporan.md`.  
+1. Hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.
+   
+3. Sajikan hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).  
+4. Analisis kelebihan dan kelemahan tiap algoritma.  
+5. Simpan seluruh hasil dan analisis ke `laporan.md`.  
 
 ---
 
