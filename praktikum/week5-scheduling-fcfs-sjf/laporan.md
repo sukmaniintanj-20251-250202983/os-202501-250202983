@@ -86,8 +86,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
    
 ---
 
-## Hasil Eksekusi
-- Hasil Eksperimen
+## Hasil Eksekusi  
 ![Screenshot hasil](<screenshots/eksperimen_fcfs_sjf.png>)
 
 ---
@@ -127,7 +126,7 @@ Gantt Chart :
 | P1 | P4 |   P3   |   P2   |
 0     6    9       16       24
 ```
-- **Perbandingan hasil FCFS dan SJF**
+- **Perbandingan hasil rata-rata WT dan TAT antara FCFS dan SJF**
 
 |Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
 |------------|------------------|----------------------|------------|-------------|
@@ -136,14 +135,10 @@ Gantt Chart :
 
 ---
   
-- **Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya**
-  
-|Kondisi Sistem|Algoritma yang lebih unggul|Alasan|
-|:-------------:|:-------------------------:|:-----:|
-|Variasi burst time besar, fokus pada efisiensi waktu|SJF|Mengurangi total waktu tunggu dan penyelesaian|
-|Burst time relatif sama, fokus keadilan|FCFS|Proses dijalankan sesuai urutan kedatangan|
-|Sistem batch/non-interaktif|SJF|Lebih efisian secara keseluruhan|
-|Sistem interaktif/real-time|FCFS|Menghindari starvation pada proses panjang|
+- **Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya**  
+  Berdasarkan hasil perhitungan pada data diatas, algoritma FCFS memiliki rata-rata waiting time sebesar 8.75 dan turnaround time sebesar 14.75, sedangkan algoritma SJF memiliki rata-rata waiting time sebesar 6.25 dan turnaround time sebesar 12.25. Perbedaan ini menunjukkan bahwa SJF lebih unggul dengan mampu menyelesaikan proses lebih cepat secara keseluruhan.
+   - SJF unggul saat proses dieksekusi memiliki variasi burst time yang besar. Dalam data ini, proses P4 yang hanya butuh 3 satuan waktu langsung dieksekusi setelah P1 selesai, membuat waktu tunggunya sangat kecil dan berpengaruh pada rata-rata keseluruhan.
+   - Sebaliknya, FCFS unggul pada kondisi sistem yang fokus pada keadilan dan kestabilan urutan. Seperti ketika semua proses datang hampir bersamaan atau memiliki burst time yang mirip. FCFS memastikan setiap proses dieksekusi sesuai urutan kedatangan tanpa ada yang tertinggal terlalu lama, walaupun secara efisiensi waktu total bisa lebih besar.
 
 ## Kesimpulan
 1. Berdasarkan hasil perhitungan pada praktikum, SJF memiliki rata-rata waktu tunggu (6.25) dan waktu penyelesaian (12.25) yang lebih rendah dibanding FCFS dengan rata-rata waktu tunggu (8.75) dan waktu penyelesaian (14.75). Hal ini menunjukkan bahwa SJF lebih efisien dalam mengelola proses dengan variasi burst time yang berbeda-beda.
@@ -154,23 +149,28 @@ Gantt Chart :
 ---
 
 ## Tugas
-Hasil hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.
+- **Hasil hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.**
 ![Screenshot hasil](<screenshots/skenario_1.png>)
 ![Screenshot hasil](<screenshots/skenario_2.png>)
-Hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).
-Skenario 1
+Pada skenario 2, semua proses mempunyai arrival time = 0, artinya semua datang bersamaan di awal. Tujuannya supaya lebih mudah melihat perbedaan hasil antara FCFS dan SJF tanpa dipengaruhi waktu kedatangan.  
 
-|Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
-|------------|------------------|----------------------|------------|-------------|
-| FCFS |6.75| 11.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
-| SJF | 4.25 | 9.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
+- **Hasil perhitungan, analisis kelebihan dan kekurangan dalam tabel perbandingan (FCFS vs SJF).**  
 
-Skenario 2
+   Skenario 1
 
-|Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
-|------------|------------------|----------------------|------------|-------------|
-| FCFS |4.33| 9.67 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
-| SJF | 3.67 | 9.00 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
+   |Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+   |------------|------------------|----------------------|------------|-------------|
+   | FCFS |6.75| 11.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+   | SJF | 4.25 | 9.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
+
+   Skenario 2
+
+   |Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+   |------------|------------------|----------------------|------------|-------------|
+   | FCFS |4.33| 9.67 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+   | SJF | 3.67 | 9.00 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
+
+   Pada skenario 2, nilai rata-rata FCFS dan SJF berbeda tipis karena semua proses datang       bersamaan. Namun, kelebihan dan kekurangan tiap algoritma tetap sama seperti skenario pertama, karena sifat dasarnya tidak berubah.
 
 ---
 
