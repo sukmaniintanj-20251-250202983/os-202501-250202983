@@ -138,7 +138,7 @@ Gantt Chart :
 - **Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya**  
   Berdasarkan hasil perhitungan pada data diatas, algoritma FCFS memiliki rata-rata waiting time sebesar 8.75 dan turnaround time sebesar 14.75, sedangkan algoritma SJF memiliki rata-rata waiting time sebesar 6.25 dan turnaround time sebesar 12.25. Perbedaan tersebut memperlihatkan SJF lebih unggul dalam hal efisiensi waktu, kondisi ini terjadi karena pada SJF, proses dengan waktu eksekusi pendek seperti P4 (burst time = 3) dapat langsung dijalankan setelah P1, sehingga proses lain tidak menunggu terlalu lama. Akibatnya, total waktu tunggu seluruh proses menjadi lebih singkat.
 
-Sebaliknya, algoritma FCFS akan lebih unggul jika setiap proses memiliki waktu eksekusi yang hampir sama atau jika sistem menuntut keadilan urutan. Berdasarkan data, FCFS menjalankan proses sesuai urutan kedatangan, yaitu P1 → P2 → P3 → P4, sehingga tidak ada proses yang dilewati. Namun karena P2 memiliki burst time cukup panjang (8), proses lain seperti P3 dan P4 jadi menunggu lama, menyebabkan waktu tunggu rata-rata meningkat.
+   Sebaliknya, algoritma FCFS akan lebih unggul jika setiap proses memiliki waktu eksekusi yang hampir sama atau jika sistem menuntut keadilan urutan. Berdasarkan data, FCFS menjalankan proses sesuai urutan kedatangan, yaitu P1 → P2 → P3 → P4, sehingga tidak ada proses yang dilewati. Namun karena P2 memiliki burst time cukup panjang (8), proses lain seperti P3 dan P4 jadi menunggu lama, menyebabkan waktu tunggu rata-rata meningkat.
 
 
 ## Kesimpulan
@@ -153,7 +153,7 @@ Sebaliknya, algoritma FCFS akan lebih unggul jika setiap proses memiliki waktu e
 - **Hasil hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.**
 ![Screenshot hasil](<screenshots/skenario_1.png>)
 ![Screenshot hasil](<screenshots/skenario_2.png>)
-Pada skenario 2, semua proses mempunyai arrival time = 0, artinya semua datang bersamaan di awal. Tujuannya supaya lebih mudah melihat perbedaan hasil antara FCFS dan SJF tanpa dipengaruhi waktu kedatangan.  
+Pada skenario 2, semua proses mempunyai arrival time = 0, dan memiliki nilai rata-rata FCFS dan SJF berbeda tipis karena semua proses datang bersamaan di awal.
 
 - **Hasil perhitungan, analisis kelebihan dan kekurangan dalam tabel perbandingan (FCFS vs SJF).**  
 
@@ -161,17 +161,15 @@ Pada skenario 2, semua proses mempunyai arrival time = 0, artinya semua datang b
 
    |Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
    |------------|------------------|----------------------|------------|-------------|
-   | FCFS |6.75| 11.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
-   | SJF | 4.25 | 9.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang | 
+   | FCFS |6.75| 11.75 | Proses dikerjakan sesuai urutan kedatangan, sederhana dan mudah diterapkan | Kurang efisien saat ada proses panjang (contohnya P3 dengan burst 8), karena meningkatkan waktu tunggu proses lain |
+   | SJF | 4.25 | 9.25 | Lebih efisien karena mengeksekusi proses dengan waktu terpendek lebih dulu, menurunkan rata-rata waktu tunggu dan penyelesaian. | Risiko starvation jika ada proses panjang yang terus tertunda (seperti P3) | 
 
    Skenario 2
 
    |Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
    |------------|------------------|----------------------|------------|-------------|
-   | FCFS |4.33| 9.67 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
-   | SJF | 3.67 | 9.00 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
-
-   Pada skenario 2, nilai rata-rata FCFS dan SJF berbeda tipis karena semua proses datang       bersamaan. Namun, kelebihan dan kekurangan tiap algoritma tetap sama seperti skenario pertama, karena sifat dasarnya tidak berubah.
+   | FCFS |4.33| 9.67 | Stabil dan adil, semua proses dijalankan sesuai urutan tanpa diprioritaskan | Tidak seefisien SJF karena urutan tidak mempertimbangkan durasi proses |
+   | SJF | 3.67 | 9.00 | Lebih cepat menyelesaikan seluruh proses, cocok karena semua arrival time = 0 sehingga pemilihan proses pendek efektif | Kurang cocok jika proses datang tidak bersamaan karena bisa menyebabkan penundaan untuk proses panjang |
 
 ---
 
